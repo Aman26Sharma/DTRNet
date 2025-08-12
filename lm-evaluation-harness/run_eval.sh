@@ -54,3 +54,4 @@ accelerate launch \
     --trust_remote_code \
     --gen_kwargs max_new_tokens=1024,do_sample=False \
     --output_path ${model_path}/lm_harness_output > ${LOG_PATH} 2>&1
+ 
