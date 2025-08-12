@@ -1,8 +1,8 @@
 # DTRNet Experiment Configuration for FineWeb 15B PT
 
 ### Model Arguments
-model_name_or_path: /home/aman/DTRNet/src/transformers_extra/models/DTRNet_smollm/config_360M.json #provide config path here 
-tokenizer_name_or_path: fla-hub/transformer-1.3B-100B # provide tokenizer path
+model_name_or_path:  #provide config path here 
+tokenizer_name_or_path: # provide tokenizer path
 custom_model: false
 trust_remote_code: true
 attn_implementation: flash_attention_2
@@ -15,7 +15,7 @@ dtrnet_layers: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24 , 26, 28, 30] # layer
 aux_loss_coeff: 0.0008 # Coefficient for auxiliary loss (lambda) [DTRNet, D-LLM]
 topk: 0.7 # Top-k value for MoD [MoD]
 dynamic_reserve_initials: 2 # Initial dynamic reserve for D-LLM [D-LLM]
-dynamic_active_target: 0.7 # Acceleration rate of tokens in D-LLM in D-LLM [D-LLM]
+dynamic_active_target: 0.7 # Acceleration rate of tokens in D-LLM [D-LLM]
 
 
 save_modeling_code: None #src/transformers_extra/models/custom_llama

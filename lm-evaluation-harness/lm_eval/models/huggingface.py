@@ -28,8 +28,8 @@ from transformers.models.auto.modeling_auto import (
 )
 
 # from transformers_extra.models.DTRNet_smollm.modeling_llama_DTRNet import LlamaForCausalLM
-# from transformers_extra.models.DTRNet_smollm.modeling_llama_DLLM_inference import LlamaForCausalLM as LlamaForCausalLM_DLLM
-# from transformers_extra.models.DTRNet_smollm.modeling_llama_MoD import LlamaForCausalLM as LlamaForCausalLM_MoD
+# from transformers_extra.models.DTRNet_smollm.modeling_llama_DLLM_inference import LlamaForCausalLM
+# from transformers_extra.models.DTRNet_smollm.modeling_llama_MoD import LlamaForCausalLM
 from transformers import LlamaForCausalLM
 
 

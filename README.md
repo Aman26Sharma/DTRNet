@@ -1,4 +1,4 @@
-# DTRNet: Dynamic Token Routing Network to Reduce Quadratic Costs in Transformers
+## DTRNet: Dynamic Token Routing Network to Reduce Quadratic Costs in Transformers
 
 <a target="_blank" href="">
 <img style="height:22pt" src="https://img.shields.io/badge/-Paper-red?style=flat&logo=arxiv"></a>
@@ -9,7 +9,7 @@
 <br>
 
 
-## 🚀 Introduction
+### 🚀 Introduction
 
 Transformers achieve state-of-the-art results across many tasks, but their uniform application of quadratic self-attention to every token at every layer makes them computationally expensive. %However, many tokens do not require such heavy computation: layer-wise cosine similarity analysis of dense Transformers reveals that inner-layer token embeddings change only marginally across adjacent layers, indicating substantial computational redundancy. We introduce DTRNet (Dynamic Token Routing Network), an improved Transformer architecture that allows tokens to dynamically skip the quadratic cost of cross-token mixing while still receiving lightweight linear updates. By preserving the MLP module and reducing the attention cost for most tokens to linear, DTRNet ensures that every token is explicitly updated while significantly lowering overall computation. This design offers an efficient and effective alternative to standard dense attention. Once trained, DTRNet blocks routes only ~10\% of tokens through attention at each layer while maintaining performance comparable to a full Transformer. Its efficiency gains, scales with sequence length, offering significant reduction in FLOPs for long-context inputs. By decoupling token updates from attention mixing, DTRNet substantially reduces the quadratic share of computation, providing a simple, efficient, and scalable alternative to Transformers.
 
@@ -18,21 +18,21 @@ Transformers achieve state-of-the-art results across many tasks, but their unifo
 <p><em>Figure 1: DTRNet Layer. Left: tokens routed to the self-attention path undergo full cross-token mixing. Right: tokens routed to the projection-only (bypass) path skip mixing and receive a token-local update via the value projection (W_V) and output projection (W_O), followed by the shared feed-forward network (FFN). Both paths share parameters.</em></p>
 </div>
 
-## 🛠 Implementation
+### 🛠 Implementation
 
 DTRNet is implemented using the **Hugging Face Transformers** library and currently supports:
 
 - **LLaMA model family**
 - **SmolLM model family** (training experiments conducted on SmolLM-360M)
 
-### Key Features
+#### Key Features
 - DeepSpeed **Zero-3** / PyTorch **DDP** optimization.
 - YAML-based configuration system for experiments.
 - **Weights & Biases (WandB)** integration for experiment tracking.
 - Modular codebase for easy integration with new models.
 
 
-## ⚙ Experimental Setup
+### ⚙ Experimental Setup
 
 Experiments are configured through YAML files in the `experiments/` directory, specifying:
 - Base model config (e.g., `HuggingFaceTB/SmolLM-360M`)
@@ -85,11 +85,11 @@ Example for loading a DTRNet-based LLaMA:
 from transformers_extra.models.DTRNet_smollm.modeling_llama_DTRNet import LlamaForCausalLM
 '''
 
-## 📝 Conclusion
+### 📝 Conclusion
 
 We introduced DTRNet, a dynamic token routing architecture that reduces Transformer inference cost by decoupling attention from token updates. By replacing full-layer skipping with a linear path that retains the MLP, DTRNet ensures that all tokens receive meaningful updates, even when attention is bypassed. This lightweight linear path enables substantial compute savings while maintaining accuracy.
 
-## 🙏 Acknowledgements
+### 🙏 Acknowledgements
 
 This project builds upon and extends work from several open-source projects and research efforts:
 
@@ -105,18 +105,18 @@ We gratefully acknowledge the authors and maintainers of these projects for thei
 
 
 
-## 📚 Citation
+### 📚 Citation
 
 If you use DTRNet in your research, please cite:
 
 ```bibtex
 ```
 
-## 📜 License
+### 📜 License
 
 This project is licensed under the terms of the license included in the repository.
 
-## 📬 Contact
+### 📬 Contact
 
 For questions or issues, please open an issue on the GitHub repository or contact the authors directly.
 

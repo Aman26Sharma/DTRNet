@@ -6,7 +6,7 @@ NUM_DEVICES=$(python -c "import os; print(len(os.getenv('CUDA_VISIBLE_DEVICES', 
 
 export ACCELERATE_LOG_LEVEL="info"
 
-EXPERIMENT_YAML_FILE="$BASE_DIR/experiments/smollm1_360M_fineweb_15B_PT.yaml"
+EXPERIMENT_YAML_FILE="$BASE_DIR/experiments/smollm_360M_fineweb_15B_PT.yaml"
 EXPERIMENT_NAME="Experiment_name" # Provide name here, e.g., "smollm_360M_fineweb_15B_PT"
 export ACCELERATE_CONFIG_FILE="$BASE_DIR/configs/ddp.yaml"
 export OUTPUT_DIR="$BASE_DIR/outputs/$EXPERIMENT_NAME" # Provide output directory here, e.g., "/outputs/smollm_360M_fineweb_15B_PT"
