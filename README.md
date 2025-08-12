@@ -18,6 +18,8 @@ Transformers achieve state-of-the-art results across many tasks, but their unifo
 <p><em>Figure 1: DTRNet Layer. Left: tokens routed to the self-attention path undergo full cross-token mixing. Right: tokens routed to the projection-only (bypass) path skip mixing and receive a token-local update via the value projection (W_V) and output projection (W_O), followed by the shared feed-forward network (FFN). Both paths share parameters.</em></p>
 </div>
 
+---
+
 ### 🛠 Implementation
 
 DTRNet is implemented using the **Hugging Face Transformers** library and currently supports:
@@ -31,32 +33,34 @@ DTRNet is implemented using the **Hugging Face Transformers** library and curren
 - **Weights & Biases (WandB)** integration for experiment tracking.
 - Modular codebase for easy integration with new models.
 
+---
+
 ### 📁 Project Structure
 
 ```
 DTRNet/
 ├── assets/                     # Images and diagrams for documentation (e.g., architecture figures)
-├── configs/ # config files for experiment optimizations like Deepspeed Zero 3
-├── experiments/                    # YAML configuration files for experiments and hyperparameters
-├── lm-evaluation-harness/ # Integrated evaluation harness fork for benchmarking
-├── scripts/ # Utility and auxiliary scripts (e.g., data processing, setup)
+├── configs/                    # config files for experiment optimizations like Deepspeed Zero 3
+├── experiments/                # YAML configuration files for experiments and hyperparameters
+├── lm-evaluation-harness/      # Integrated evaluation harness fork for benchmarking
+├── scripts/                    # Utility and auxiliary scripts (e.g., data processing, setup)
 ├── src/                        # Main source code
 │   ├── args/                   # Argument parsing and configuration handling
 │   ├── data/                   # Data loading, preprocessing, and dataset utilities
 │   ├── model/                  # Model definitions and initialization logic
 │   ├── pipeline/
-│   │   └── sft/                 # Training pipeline
+│   │   └── sft/                # Training pipeline
 │   └── transformers_extra/     # Extended Hugging Face Transformers code with DTRNet implementation
 │       ├── models/DTRNet_smollm  # Core DTRNet layer and model implementation with configurations
-├── tests/ # Unit tests and validation suites
-├── .env # Environment variables 
+├── tests/                      # Unit tests and validation suites
+├── .env                        # Environment variables 
 ├── requirements.txt            # Python dependencies
-├── train_pt.sh # Main training entry-point script
+├── train_pt.sh                 # Main training entry-point script
 └── README.md # Project overview, documentation, and usage guide
 └── LICENSE                     # License information
 ```
 
-
+---
 
 
 ### ⚙ Experimental Setup
@@ -83,6 +87,8 @@ cd lm-evaluation-harness
 pip install -e .
 ```
 
+---
+
 ### 📈 Training
 
 To train a model with DTRNet layers, use the provided training script:
@@ -93,7 +99,7 @@ bash train_pt.sh
 - Update the training scripts (train_pt.sh) with your desired configuration.
 - Training logs and checkpoints will be stored in the specified output directory.
 
-
+---
 
 ### ✅ Evaluation
 
@@ -106,6 +112,7 @@ bash run_eval.sh
 
 Change the eval script (run_eval.sh) with your desired configuration and datasets.
 
+
 **Note:** 
 Before running evaluation, update the huggingface.py loader in lm-evaluation-harness/lm_eval/models/ to point to the DTRNet implementation.
 Example for loading a DTRNet-based LLaMA:
@@ -114,9 +121,13 @@ Example for loading a DTRNet-based LLaMA:
 from transformers_extra.models.DTRNet_smollm.modeling_llama_DTRNet import LlamaForCausalLM
 ```
 
+---
+
 ### 📝 Conclusion
 
 We introduced DTRNet, a dynamic token routing architecture that reduces Transformer inference cost by decoupling attention from token updates. By replacing full-layer skipping with a linear path that retains the MLP, DTRNet ensures that all tokens receive meaningful updates, even when attention is bypassed. This lightweight linear path enables substantial compute savings while maintaining accuracy.
+
+---
 
 ### 🙏 Acknowledgements
 
@@ -132,7 +143,7 @@ This project builds upon and extends work from several open-source projects and 
 
 We gratefully acknowledge the authors and maintainers of these projects for their contributions to the open-source and research community.
 
-
+---
 
 ### 📚 Citation
 
@@ -141,16 +152,19 @@ If you use DTRNet in your research, please cite:
 ```bibtex
 ```
 
+---
+
 ### 📜 License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
+---
 
 ### 📬 Contact
 
 For questions or issues, please open an issue on the GitHub repository or contact the authors directly.
 
-
+---
 
 
 
