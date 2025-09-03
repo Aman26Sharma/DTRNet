@@ -2,7 +2,7 @@
 
 <a target="_blank" href="">
 <img style="height:22pt" src="https://img.shields.io/badge/-Paper-red?style=flat&logo=arxiv"></a>
-<a target="_blank" href="https://github.com/Aman26Sharma/DTRNet">
+<a target="_blank" href="https://arxiv.org/pdf/2509.00925">
 <img style="height:22pt" src="https://img.shields.io/badge/-Code-green?style=flat&logo=github"></a>
 <!-- <a target="_blank" href="https://twitter.com/DongfuJiang/status/1805438506137010326">
 <img style="height:22pt" src="https://img.shields.io/badge/-Tweet-blue?style=flat&logo=twitter"></a> -->
