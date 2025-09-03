@@ -149,7 +149,12 @@ We gratefully acknowledge the authors and maintainers of these projects for thei
 
 If you use DTRNet in your research, please cite:
 
-```bibtex
+```@article{sharma2025dtrnet},
+  title={DTRNet: Dynamic Token Routing Network to Reduce Quadratic Costs in Transformers},
+  author={Sharma, Aman and Najafi, Saeed and Farinneya, Parsa and Jamialahmadi, Benyamin and S. Tahaei, Marzieh and Fan, Yuhe and Rezagholizadeh, Mehdi and Chen, Boxing and Jafari, Aref},
+  journal={arXiv preprint arXiv:2509.00925},
+  year={2025}
+}
 ```
 
 ---
